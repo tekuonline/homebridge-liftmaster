@@ -7,8 +7,8 @@ module.exports = function(homebridge) {
   homebridge.registerAccessory("homebridge-liftmaster", "LiftMaster", LiftMasterAccessory);
 }
 
-// This seems to be the "id" of the official LiftMaster iOS app
-var APP_ID = "JVM/G9Nwih5BwKgNCjLxiFUQxQijAebyyg8QUHr7JOrP+tuPb8iHfRHKwTmDzHOu"
+// This seems to be the "id" of the official Assurelink iOS app
+var APP_ID = "eU97d99kMG4t3STJZO/Mu2wt69yTQwM0WXZA5oZ74/ascQ2xQrLD/yjeVhEQccBZ"
 
 function LiftMasterAccessory(log, config) {
   this.log = log;
@@ -49,7 +49,7 @@ LiftMasterAccessory.prototype = {
 
     // login to liftmaster
     request.get({
-      url: "https://myqexternal.myqdevice.com/api/user/validatewithculture",
+      url: "https://craftexternal.myqdevice.com/api/user/validatewithculture",
       qs: query
     }, function(err, response, body) {
 
@@ -87,7 +87,7 @@ LiftMasterAccessory.prototype = {
 
     // request details of all your devices
     request.get({
-      url: "https://myqexternal.myqdevice.com/api/v4/userdevicedetails/get",
+      url: "https://craftexternal.myqdevice.com/api/v4/userdevicedetails/get",
       qs: query,
       headers: headers
     }, function(err, response, body) {
@@ -204,7 +204,7 @@ LiftMasterAccessory.prototype = {
 
     // send the state request to liftmaster
     request.put({
-      url: "https://myqexternal.myqdevice.com/api/v4/DeviceAttribute/PutDeviceAttribute",
+      url: "https://craftexternal.myqdevice.com/api/v4/DeviceAttribute/PutDeviceAttribute",
       qs: query,
       headers: headers,
       body: body,
