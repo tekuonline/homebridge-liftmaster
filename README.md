@@ -1,5 +1,5 @@
 
-# LiftMaster Plugin
+# Assurelink Plugin (modified form LiftMaster)
 
 Example config.json:
 
